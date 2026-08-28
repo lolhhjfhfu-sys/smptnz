@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TNZSMP — Minecraft SMP</title>
+<meta name="description" content="TNZSMP — Minecraft SMP. Java 26.1.2. IP tnzsmp52.mcsh.io">
+<link rel="icon" type="image/png" href="tnzsmp.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#050608;--card:#0d1117d9;--line:#ffffff16;--muted:#9ba6b5;--green:#70ef87;--cyan:#5ad9ff;--white:#f7f9fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 15% 15%,#5ad9ff12,transparent 30%),radial-gradient(circle at 85% 30%,#70ef8710,transparent 28%)}
+body:after{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.025;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:44px 44px}
+a{text-decoration:none;color:inherit}button{font:inherit}.nav{position:fixed;top:15px;left:50%;transform:translateX(-50%);z-index:100;width:min(1180px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border:1px solid var(--line);border-radius:18px;background:#050608b8;backdrop-filter:blur(20px);box-shadow:0 15px 60px #0008}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900}.logo img{width:42px;height:42px;border-radius:11px;object-fit:cover}.links{display:flex;gap:4px}.links a{font-size:13px;color:#b9c3cf;padding:10px 12px;border-radius:10px;transition:.25s}.links a:hover{background:#ffffff0d;color:#fff;transform:translateY(-2px)}.links .tg{background:#5ad9ff;color:#031018;font-weight:900}.burger{display:none;background:none;border:0;color:#fff;font-size:24px}
+.hero{min-height:100vh;position:relative;display:grid;place-items:center;padding:140px 18px 90px;text-align:center}.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:-2}.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.47) saturate(.9);animation:zoom 18s ease-in-out infinite alternate}.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#02030544 0%,#05060855 50%,#050608 100%)}
+.badge{display:inline-flex;gap:9px;align-items:center;border:1px solid #70ef8740;background:#06130a99;color:#b9ffc5;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;margin-bottom:23px}.dot{width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 15px var(--green);animation:pulse 1.6s infinite}
+h1{font-size:clamp(60px,12vw,150px);line-height:.85;letter-spacing:-8px;margin:0;font-weight:900;text-shadow:0 15px 60px #000b}.hero p{max-width:760px;margin:27px auto 0;color:#d3dae2;font-size:clamp(16px,2vw,21px);line-height:1.7}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:11px;margin-top:32px}.btn{min-height:50px;padding:0 19px;border-radius:13px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:800;cursor:pointer;transition:.25s}.btn:hover{transform:translateY(-4px);box-shadow:0 18px 35px #0007}.green{background:linear-gradient(135deg,#7bf38e,#37bd5c);color:#061009;border:0}.dark{background:#ffffff0b;backdrop-filter:blur(10px)}
+.info{width:min(800px,100%);margin:50px auto 0;display:grid;grid-template-columns:1fr 1px 1fr;padding:10px;border:1px solid #ffffff1c;border-radius:18px;background:#05080c99;backdrop-filter:blur(16px)}.info>div{padding:10px}.sep{background:#ffffff18}.label{font-size:10px;text-transform:uppercase;letter-spacing:1.7px;color:#7f8997;margin-bottom:7px}.value{font-size:17px;font-weight:900}.copy{border:1px solid #ffffff12;background:#ffffff09;color:#fff;border-radius:8px;padding:7px 9px;margin-left:5px;cursor:pointer}
+main{width:min(1160px,calc(100% - 30px));margin:auto}section{padding:105px 0}.kicker{color:var(--green);font-size:11px;letter-spacing:2px;font-weight:900;text-transform:uppercase;margin-bottom:12px}h2{font-size:clamp(34px,5vw,59px);letter-spacing:-2.5px;margin:0}.lead{max-width:700px;color:var(--muted);line-height:1.75;margin-top:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}.card{padding:25px;border:1px solid var(--line);border-radius:20px;background:var(--card);position:relative;overflow:hidden;transition:.3s}.card:after{content:"";position:absolute;width:130px;height:130px;right:-70px;top:-70px;border-radius:50%;background:#5ad9ff18;filter:blur(35px)}.card:hover{transform:translateY(-7px);border-color:#ffffff2b}.emoji{font-size:27px;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.download{display:grid;grid-template-columns:1.15fr .85fr;gap:15px;margin-top:35px}.download-main{padding:38px;border:1px solid #70ef8733;border-radius:23px;background:linear-gradient(135deg,#17361f66,#0b1016e8);overflow:hidden;position:relative}.download-main:after{content:"";position:absolute;width:300px;height:300px;right:-130px;bottom:-170px;border-radius:50%;background:#70ef8720;filter:blur(50px)}.tag{display:inline-block;padding:7px 9px;background:#ffffff0b;border-radius:8px;color:#d6dee7;font-size:11px;margin-bottom:15px}.download-main h3{font-size:31px;margin:0}.download-main p{color:#c1cad4;line-height:1.75;max-width:650px}.features{display:grid;gap:11px}.feature{padding:18px;border:1px solid var(--line);border-radius:16px;background:#ffffff05}.feature b{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:13px;line-height:1.5}
+.guide{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{padding:20px;border:1px solid var(--line);border-radius:17px;background:#ffffff04}.n{width:31px;height:31px;border-radius:9px;background:#fff;color:#050608;display:grid;place-items:center;font-weight:900;margin-bottom:14px}.step b{display:block;margin-bottom:5px}.step span{font-size:13px;color:var(--muted);line-height:1.55}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:34px}.rule{display:flex;gap:14px;padding:20px;border:1px solid var(--line);border-radius:17px;background:#ffffff04;transition:.25s}.rule:hover{background:#ffffff08;transform:translateX(4px)}.rn{color:var(--green);font-weight:900;font-size:12px}.rule b{display:block;margin-bottom:5px}.rule span{font-size:13px;color:var(--muted);line-height:1.55}
+.join{padding-bottom:120px}.joinbox{margin-top:30px;padding:25px;border:1px solid var(--line);border-radius:20px;background:#ffffff05;display:flex;justify-content:space-between;align-items:center;gap:20px}.ip small{display:block;color:#7f8997;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}.ip strong{font-family:monospace;font-size:clamp(18px,3vw,29px)}footer{border-top:1px solid var(--line);padding:42px 20px 55px;text-align:center;color:#778290;font-size:13px}footer b{color:#fff}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,25px);opacity:0;pointer-events:none;background:#0d1319;border:1px solid #ffffff1a;border-radius:12px;padding:12px 16px;z-index:200;transition:.3s;box-shadow:0 15px 45px #0009;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(28px);transition:.75s}.reveal.on{opacity:1;transform:none}
+@keyframes zoom{from{transform:scale(1.04)}to{transform:scale(1.12)}}@keyframes pulse{50%{opacity:.4;transform:scale(.75)}}
+@media(max-width:850px){.links{display:none}.burger{display:block}.nav.open .links{display:flex;position:absolute;left:0;right:0;top:70px;padding:9px;flex-direction:column;background:#050608f7;border:1px solid var(--line);border-radius:15px}.links a{text-align:center}.grid,.guide{grid-template-columns:1fr 1fr}.download{grid-template-columns:1fr}.rules{grid-template-columns:1fr}}
+@media(max-width:560px){h1{letter-spacing:-4px}.info{grid-template-columns:1fr}.sep{height:1px;width:100%}.grid,.guide{grid-template-columns:1fr}.joinbox{flex-direction:column;align-items:flex-start}.hero{padding-top:125px}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+<a class="logo" href="#top"><img src="tnzsmp.png" alt="TNZSMP"><span>TNZSMP</span></a>
+<button class="burger" id="burger">☰</button>
+<div class="links">
+<a href="#server">Сервер</a><a href="#assembly">Сборка</a><a href="#rules">Правила</a><a href="#join">Как играть</a>
+<a class="tg" target="_blank" rel="noopener" href="https://t.me/SmpTnz">Telegram ↗</a>
+</div>
+</nav>
+
+<header class="hero" id="top">
+<div class="hero-bg"><img src="tnzsmp.png" alt=""></div>
+<div>
+<div class="badge"><i class="dot"></i> TNZSMP • MINECRAFT SMP</div>
+<h1>TNZSMP</h1>
+<p>Мир, который строишь ты. Выживай, развивайся, создавай огромные проекты и играй вместе с друзьями.</p>
+<div class="actions"><a class="btn green" href="#assembly">⬇ Скачать сборку</a><a class="btn dark" target="_blank" rel="noopener" href="https://t.me/SmpTnz">✈ Telegram канал</a></div>
+<div class="info">
+<div><div class="label">IP сервера</div><div class="value">tnzsmp52.mcsh.io <button class="copy" data-copy="tnzsmp52.mcsh.io">Копировать</button></div></div>
+<div class="sep"></div><div><div class="label">Версия Minecraft</div><div class="value">26.1.2</div></div>
+</div>
+</div>
+</header>
+
+<main>
+<section id="server" class="reveal">
+<div class="kicker">ABOUT TNZSMP</div><h2>Добро пожаловать в TNZSMP</h2>
+<p class="lead">TNZSMP — сервер Minecraft для тех, кто любит обычное выживание, строительство и игру с друзьями. Здесь главное — развитие своего мира и уважение к другим игрокам.</p>
+<div class="grid">
+<div class="card"><div class="emoji">🌍</div><h3>Большой мир</h3><p>Исследуй мир, находи красивые места и создавай свою историю.</p></div>
+<div class="card"><div class="emoji">🏠</div><h3>Строй что хочешь</h3><p>От маленького дома до огромного города или общей базы.</p></div>
+<div class="card"><div class="emoji">⚔️</div><h3>Выживание</h3><p>Добывай ресурсы, развивайся и защищай то, что создал.</p></div>
+</div>
+</section>
+
+<section id="assembly" class="reveal">
+<div class="kicker">TNZSMP ASSEMBLY</div><h2>Наша сборка</h2>
+<p class="lead">В сборке собрано <b>32+ модификаций и дополнений</b> для более приятной игры. Всё подготовлено так, чтобы игрок мог быстро установить сборку и зайти на сервер.</p>
+<div class="download">
+<div class="download-main">
+<span class="tag">MINECRAFT JAVA • 26.1.2 • 32+ MODS</span>
+<h3>Скачай сборку TNZSMP</h3>
+<p>Внутри — 32+ сборки/модов и настроек, которые мы подготовили для сервера. Скачивай архив, распакуй его и перенеси содержимое в папку игры по инструкции ниже.</p>
+<a class="btn green" target="_blank" rel="noopener" href="https://drive.google.com/file/d/1tOG6fNgf4SQbuNW4xEN53-EWmHvjHYd_/view?usp=drive_link">📦 Скачать сборку</a>
+</div>
+<div class="features">
+<div class="feature"><b>⚡ 32+ модификаций</b><span>Подборка дополнений для комфортной игры на TNZSMP.</span></div>
+<div class="feature"><b>🎮 Версия 26.1.2</b><span>Используй указанную версию Minecraft для подключения.</span></div>
+<div class="feature"><b>🛠️ Готовая настройка</b><span>Не нужно собирать моды по одному — всё подготовлено заранее.</span></div>
+</div>
+</div>
+<div class="guide">
+<div class="step"><div class="n">1</div><b>Скачай архив</b><span>Нажми «Скачать сборку» и дождись загрузки файла с Google Drive.</span></div>
+<div class="step"><div class="n">2</div><b>Открой папку игры</b><span>Открой папку Minecraft и найди папку <b>mods</b> (если её нет — создай её).</span></div>
+<div class="step"><div class="n">3</div><b>Закинь файлы</b><span>Перенеси файлы сборки в соответствующие папки, запусти Minecraft 26.1.2 и подключись к серверу.</span></div>
+</div>
+</section>
+
+<section id="rules" class="reveal">
+<div class="kicker">SERVER RULES</div><h2>Правила сервера</h2><p class="lead">Соблюдай правила — и игра будет комфортной для всех. За серьёзные нарушения может выдаваться перманентный бан.</p>
+<div class="rules">
+<div class="rule"><div class="rn">01</div><div><b>Гриферство — БАН</b><span>Ломать чужие постройки, взрывать, заливать лавой/водой и намеренно портить территорию запрещено.</span></div></div>
+<div class="rule"><div class="rn">02</div><div><b>Кража ресурсов — БАН</b><span>Нельзя забирать вещи из чужих сундуков, ферм, домов и других хранилищ без разрешения владельца.</span></div></div>
+<div class="rule"><div class="rn">03</div><div><b>Читы — ПЕРМАНЕНТНЫЙ БАН</b><span>X-Ray, KillAura, Fly, чит-клиенты и любые запрещённые преимущества — перманентная блокировка.</span></div></div>
+<div class="rule"><div class="rn">04</div><div><b>Дюпы и эксплуатация багов</b><span>Намеренное использование багов для получения ресурсов запрещено. Найденный баг сообщай администрации.</span></div></div>
+<div class="rule"><div class="rn">05</div><div><b>Оскорбления и травля</b><span>Не устраивай травлю, угрозы и постоянные оскорбления игроков. За систематические нарушения — наказание.</span></div></div>
+<div class="rule"><div class="rn">06</div><div><b>Реклама — БАН</b><span>Реклама сторонних серверов, проектов и ресурсов без разрешения администрации запрещена.</span></div></div>
+<div class="rule"><div class="rn">07</div><div><b>Обход наказаний</b><span>Запрещено использовать дополнительные аккаунты для обхода мута, бана или других санкций.</span></div></div>
+<div class="rule"><div class="rn">08</div><div><b>Уважение к игрокам</b><span>Не мешай другим играть и не создавай намеренные помехи. Спорные ситуации решает администрация.</span></div></div>
+</div>
+</section>
+
+<section id="join" class="join reveal">
+<div class="kicker">JOIN TNZSMP</div><h2>Готов залететь?</h2><p class="lead">Установи Minecraft Java 26.1.2, добавь IP и присоединяйся к TNZSMP.</p>
+<div class="joinbox"><div class="ip"><small>IP сервера</small><strong>tnzsmp52.mcsh.io</strong></div><button class="btn green" data-copy="tnzsmp52.mcsh.io">📋 Скопировать IP</button></div>
+<div class="actions" style="justify-content:flex-start;margin-top:18px"><a class="btn dark" target="_blank" rel="noopener" href="https://t.me/SmpTnz">✈ Перейти в Telegram</a><a class="btn dark" href="#assembly">📦 Скачать сборку</a></div>
+</section>
+</main>
+
+<footer><b>TNZSMP</b> • Minecraft SMP<br><span style="display:inline-block;margin-top:8px">Java 26.1.2 • tnzsmp52.mcsh.io</span></footer>
+<div class="toast" id="toast">IP скопирован!</div>
+
+<script>
+const nav=document.getElementById('nav');
+document.getElementById('burger').onclick=()=>nav.classList.toggle('open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+function mcClick(){
+ try{
+  const A=window.AudioContext||window.webkitAudioContext;if(!A)return;
+  const c=new A(),o=c.createOscillator(),g=c.createGain();
+  o.type='square';o.frequency.setValueAtTime(185,c.currentTime);o.frequency.exponentialRampToValueAtTime(105,c.currentTime+.055);
+  g.gain.setValueAtTime(.035,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.07);
+  o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.075);
+ }catch(e){}
+}
+document.querySelectorAll('a,button').forEach(x=>x.addEventListener('click',mcClick));
+
+const toast=document.getElementById('toast');
+document.querySelectorAll('[data-copy]').forEach(b=>b.onclick=async()=>{
+ const v=b.dataset.copy;
+ try{await navigator.clipboard.writeText(v)}catch(e){let t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}
+ toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1700);
+});
+const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+</script>
+</body>
+</html>
