@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="TNZ SMP — хардкорный Minecraft SMP сервер. Скоро открытие.">
+<title>TNZ SMP — Minecraft Server</title>
+<style>
+:root{
+  --blue:#38a8ff; --cyan:#67d7ff; --green:#7cff5b;
+  --bg:#050b13; --card:rgba(7,17,30,.78);
+  --line:rgba(103,215,255,.18); --text:#f4f9ff; --muted:#a8b9c9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text); background:#050b13; overflow-x:hidden;
+}
+body:before{
+  content:""; position:fixed; inset:0; z-index:-5;
+  background:
+    linear-gradient(180deg,rgba(2,7,13,.25),rgba(2,7,13,.92)),
+    url("background.png") center/cover;
+  filter:saturate(1.05);
+}
+body:after{
+  content:""; position:fixed; inset:0; z-index:-4; pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(56,168,255,.17),transparent 30%),
+    radial-gradient(circle at 85% 40%,rgba(124,255,91,.10),transparent 28%),
+    linear-gradient(180deg,transparent 45%,#050b13 100%);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+.nav{
+  position:fixed; top:18px; left:50%; transform:translateX(-50%);
+  width:min(1100px,92%); z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 14px 11px 18px;
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(3,10,18,.92);
+  border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.28);
+}
+.brand{font-weight:900;letter-spacing:.8px}
+.brand span{color:var(--cyan)}
+.navlinks{display:flex;gap:8px}
+.navlinks a{padding:9px 13px;border-radius:11px;color:#c9d8e6;font-size:14px}
+.navlinks a:hover{background:rgba(103,215,255,.1);color:#fff}
+.hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 70px;position:relative}
+.hero-content{text-align:center;max-width:1050px;width:100%}
+.logo{
+  will-change:transform;
+  display:block;
+  width:min(330px,70vw);
+  margin:0 auto;aspect-ratio:1;object-fit:cover;border-radius:34px;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 0 0 10px rgba(56,168,255,.04),0 30px 90px rgba(0,0,0,.6),0 0 70px rgba(56,168,255,.22);
+  animation:float 5s ease-in-out infinite;
+}
+.badge{
+  display:inline-flex;margin:28px 0 16px;padding:8px 13px;border-radius:999px;
+  border:1px solid rgba(103,215,255,.3);background:rgba(103,215,255,.08);
+  color:#bceeff;font-size:13px;font-weight:800;letter-spacing:.7px;
+}
+h1{font-size:clamp(48px,9vw,92px);line-height:.9;letter-spacing:-4px;text-shadow:0 12px 40px #000}
+.gradient{background:linear-gradient(100deg,#fff,#7bdcff,#8cff6b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:22px auto 28px;max-width:650px;color:#c2d0dc;font-size:18px;line-height:1.65}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding:0 20px;border-radius:14px;font-weight:850;
+  border:1px solid rgba(255,255,255,.13);transition:.25s ease;cursor:pointer
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(0,0,0,.3)}
+.primary{background:linear-gradient(135deg,#2e9cff,#56d9ff);color:#ffffff;box-shadow:0 8px 30px rgba(56,168,255,.24)}
+.secondary{background:rgba(255,255,255,.07);color:#fff}
+.status{
+  margin:34px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;
+  color:#dbe8f2;font-size:14px
+}
+.dot{width:9px;height:9px;border-radius:50%;background:#ffd34d;box-shadow:0 0 16px #ffd34d;animation:pulse 1.6s infinite}
+section{padding:100px 0}
+.section-title{font-size:clamp(30px,5vw,52px);letter-spacing:-1.8px;margin-bottom:12px}
+.section-sub{color:var(--muted);max-width:720px;line-height:1.65;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  padding:25px;border-radius:22px;background:var(--card);border:1px solid var(--line);
+  box-shadow:0 12px 35px rgba(0,0,0,.18);
+  transition:.3s ease;position:relative;overflow:hidden
+}
+.card:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(56,168,255,.1);filter:blur(40px);right:-90px;top:-90px}
+.card:hover{transform:translateY(-7px);border-color:rgba(103,215,255,.35)}
+.icon{font-size:30px;margin-bottom:13px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p,.card li{color:#b9c8d5;line-height:1.65;font-size:14px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.rule{display:flex;gap:12px;padding:17px;border-radius:16px;background:rgba(5,14,24,.72);border:1px solid rgba(255,255,255,.08)}
+.rule b{color:#fff}.rule span{color:#91a4b5;font-size:14px}
+.rule-num{width:30px;height:30px;display:grid;place-items:center;flex:0 0 30px;border-radius:9px;background:rgba(56,168,255,.13);color:#76d8ff;font-weight:900}
+.faq{max-width:850px;display:grid;gap:10px}
+details{background:rgba(5,14,24,.74);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:0 19px}
+summary{cursor:pointer;list-style:none;padding:19px 0;font-weight:800}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:#6fd9ff;font-size:22px}
+details[open] summary:after{content:"−"}
+.answer{padding:0 0 19px;color:#aebdca;line-height:1.65;font-size:14px}
+.download{
+  text-align:center;padding:55px 30px;border-radius:28px;
+  background:linear-gradient(135deg,rgba(56,168,255,.13),rgba(124,255,91,.07));
+  border:1px solid rgba(103,215,255,.2)
+}
+.download .btn{margin-top:20px}
+.tg{color:#72dcff;font-weight:850}
+footer{padding:35px 0 60px;text-align:center;color:#728597;font-size:13px}
+#particles{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.particle{position:absolute;will-change:transform,opacity;width:3px;height:3px;background:#b8edff;border-radius:50%;opacity:.6;box-shadow:0 0 6px #75dfff;animation:rise linear infinite}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+.top{position:fixed;right:20px;bottom:20px;z-index:40;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:rgba(3,12,21,.78);color:#fff;cursor:pointer}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-13px) rotate(1deg)}}
+@keyframes pulse{50%{transform:scale(1.4);opacity:.55}}
+@keyframes rise{from{transform:translateY(105vh);opacity:0}20%{opacity:.7}to{transform:translateY(-10vh);opacity:0}}
+@media(max-width:800px){
+  .logo{margin:0 auto;}
+  .navlinks a:nth-child(-n+2){display:none}
+  .grid,.rules{grid-template-columns:1fr}
+  section{padding:75px 0}
+  .hero{padding-top:110px}
+  h1{letter-spacing:-2px}
+}
+</style>
+</head>
+<body>
+<div id="particles"></div>
+
+<nav class="nav">
+  <a class="brand" href="#">TNZ <span>SMP</span></a>
+  <div class="navlinks">
+    <a href="#about">О сервере</a>
+    <a href="#rules">Правила</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://t.me/SmpTnz" target="_blank">Telegram</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content reveal">
+    <img class="logo" src="logo.jpg" alt="Логотип TNZ SMP">
+    <div class="badge">⚡ HARDCORE SMP • MINECRAFT</div>
+    <h1>TNZ <span class="gradient">SMP</span></h1>
+    <p>Хардкорный сервер Minecraft, где выживание имеет значение. Собирай команду, развивайся и не потеряй всё из-за одной ошибки.</p>
+    <div class="actions">
+      <a class="btn primary" href="TNZ-SMP-Launcher.exe" download>⬇ Скачать лаунчер для Windows</a>
+      <a class="btn secondary" href="https://t.me/SmpTnz" target="_blank">✈ Наш Telegram</a>
+    </div>
+    <div class="status"><i class="dot"></i><b>Сервер скоро откроется</b> — вся информация в Telegram <a class="tg" href="https://t.me/SmpTnz" target="_blank">@SmpTnz</a></div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="container reveal">
+    <div class="section-title">Добро пожаловать в <span class="gradient">TNZ SMP</span></div>
+    <p class="section-sub">Подготовь Minecraft, скачай наш лаунчер и следи за Telegram. Сервер работает на версии <b>26.1.2</b>. Здесь собраны основные правила и ответы на частые вопросы.</p>
+    <div class="grid">
+      <article class="card"><div class="icon">⚔️</div><h3>Hardcore выживание</h3><p>Играй аккуратно, развивай базу и объединяйся с другими игроками.</p></article>
+      <article class="card"><div class="icon">🧱</div><h3>Своя атмосфера</h3><p>Строй, исследуй мир, создавай поселения и оставляй свой след на сервере.</p></article>
+      <article class="card"><div class="icon">🚀</div><h3>Лаунчер для ПК</h3><p>Скачай готовый лаунчер TNZ SMP для Windows и используй его для входа на сервер.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="container reveal">
+    <div class="download">
+      <div class="section-title">Готов к старту?</div>
+      <p class="section-sub" style="margin:0 auto">Скачай лаунчер для Windows. Если сервер ещё не открыт — следи за новостями в Telegram.</p>
+      <a class="btn primary" href="TNZ-SMP-Launcher.exe" download>⬇ Скачать TNZ SMP Launcher</a>
+      <div style="margin-top:15px;color:#8fa3b4;font-size:13px">Minecraft Java Edition • версия сервера 26.1.2</div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="container reveal">
+    <div class="section-title">Правила сервера</div>
+    <p class="section-sub">Незнание правил не освобождает от ответственности. Администрация может применять наказание в зависимости от ситуации.</p>
+    <div class="rules">
+      <div class="rule"><div class="rule-num">01</div><div><b>Воровство запрещено</b><br><span>Кража чужих ресурсов, предметов и вещей — бан.</span></div></div>
+      <div class="rule"><div class="rule-num">02</div><div><b>Гриферство запрещено</b><br><span>Ломать, поджигать, взрывать или портить чужие постройки нельзя.</span></div></div>
+      <div class="rule"><div class="rule-num">03</div><div><b>Не мешай другим игрокам</b><br><span>Не создавай намеренные помехи, ловушки и провокации ради вреда игроку.</span></div></div>
+      <div class="rule"><div class="rule-num">04</div><div><b>Читы и софты запрещены</b><br><span>Любые читы, x-ray, unfair-клиенты и запрещённые преимущества — бан.</span></div></div>
+      <div class="rule"><div class="rule-num">05</div><div><b>Уважай игроков</b><br><span>Без оскорблений, травли, угроз и токсичного поведения.</span></div></div>
+      <div class="rule"><div class="rule-num">06</div><div><b>Не мешай администрации</b><br><span>Не спамь, не провоцируй и не препятствуй работе администрации.</span></div></div>
+      <div class="rule"><div class="rule-num">07</div><div><b>Без спама и рекламы</b><br><span>Реклама сторонних серверов, проектов и подозрительных ссылок запрещена.</span></div></div>
+      <div class="rule"><div class="rule-num">08</div><div><b>Не используй баги</b><br><span>Нашёл критический баг — сообщи администрации, а не используй его для выгоды.</span></div></div>
+      <div class="rule"><div class="rule-num">09</div><div><b>Не выдавай себя за администрацию</b><br><span>Запрещено обманывать игроков, представляясь владельцем или сотрудником сервера.</span></div></div>
+      <div class="rule"><div class="rule-num">10</div><div><b>Решения администрации обязательны</b><br><span>Спорные ситуации разбираются через администрацию и поддержку.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container reveal">
+    <div class="section-title">FAQ</div>
+    <p class="section-sub">Частые вопросы — чтобы быстро решить типичные проблемы без нагрузки на админов.</p>
+    <div class="faq">
+      <details><summary>Не могу зайти на сервер</summary><div class="answer">Проверь, что используешь версию <b>26.1.2</b>, скачай наш лаунчер для Windows и убедись, что сервер уже открыт. Если проблема остаётся — напиши в Telegram <a class="tg" href="https://t.me/SmpTnz" target="_blank">@SmpTnz</a>.</div></details>
+      <details><summary>Где скачать лаунчер?</summary><div class="answer">Используй кнопку «Скачать лаунчер для Windows» на этой странице. Файл называется <b>TNZ-SMP-Launcher.exe</b>.</div></details>
+      <details><summary>Что делать, если появилась ошибка?</summary><div class="answer">Перезапусти лаунчер, проверь версию Minecraft и попробуй ещё раз. Если ошибка повторяется, отправь её текст или скриншот в Telegram администрации.</div></details>
+      <details><summary>Какая версия игры нужна?</summary><div class="answer">Для сервера указана версия <b>26.1.2</b>. Используй именно её для подключения.</div></details>
+      <details><summary>Когда откроется сервер?</summary><div class="answer">Сервер <b>скоро откроется</b>. Точную информацию, новости и объявление об открытии публикуем в Telegram: <a class="tg" href="https://t.me/SmpTnz" target="_blank">@SmpTnz</a>.</div></details>
+      <details><summary>Можно ли играть с друзьями?</summary><div class="answer">Да. Собирай команду, стройте вместе и выживайте, соблюдая правила сервера.</div></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+    <div class="download">
+      <div class="section-title">Сервер скоро откроется</div>
+      <p class="section-sub" style="margin:0 auto 8px">Следи за открытием, обновлениями и всей важной информацией в нашем Telegram.</p>
+      <a class="btn primary" href="https://t.me/SmpTnz" target="_blank">✈ Перейти в @SmpTnz</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 TNZ SMP • Minecraft server community</footer>
+<button class="top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">↑</button>
+
+<script>
+const particleBox=document.getElementById('particles');
+for(let i=0;i<28;i++){
+  const p=document.createElement('span');p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.animationDuration=(7+Math.random()*12)+'s';
+  p.style.animationDelay=(-Math.random()*18)+'s';
+  p.style.opacity=(.25+Math.random()*.65);
+  const s=(1+Math.random()*3)+'px';p.style.width=s;p.style.height=s;
+  particleBox.appendChild(p);
+}
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Lightweight desktop parallax; disabled on touch devices.
+if (!matchMedia('(pointer: coarse)').matches) {
+  const hero = document.querySelector('.hero-content');
+  let raf = 0;
+  window.addEventListener('mousemove', (e) => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      const x=(e.clientX/innerWidth-.5)*2, y=(e.clientY/innerHeight-.5)*2;
+      hero.style.transform=`translate3d(${x*2}px,${y*1.5}px,0)`;
+      raf = 0;
+    });
+  }, {passive:true});
+}
+</script>
+</body>
+</html>
