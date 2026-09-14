@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071225">
+  <meta name="description" content="TNZ SMP — хардкорный Minecraft SMP. Скачивай лаунчер и начинай свою историю.">
+  <title>TNZ SMP — Создай свою историю</title>
+  <link rel="icon" href="logo.jpg">
+  <link rel="stylesheet" href="style.css">
+  <style>
+      .site-loading{opacity:0}
+      body{transition:opacity .45s ease}
+    </style>
+  </head>
+<body class="site-loading">
+
+  <div class="bg"></div>
+  <div class="shade"></div>
+
+  <header class="header">
+    <a class="brand" href="#top" aria-label="TNZ SMP">
+      <img src="logo.jpg" alt="TNZ SMP">
+      <span>TNZ SMP</span>
+    </a>
+    <nav>
+      <a href="#about">О сервере</a>
+      <a href="#faq">FAQ</a>
+      <a href="#telegram">Telegram</a>
+    </nav>
+    <a class="header-btn" href="#download">Играть</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="dot"></span> ХАРДКОРНЫЙ SMP · ОДНА ЖИЗНЬ</div>
+        <h1>TNZ <span>SMP</span></h1>
+        <p class="hero-subtitle">
+          Выживай. Строй. Развивай свою территорию.<br>
+          Создай историю, которую запомнят.
+        </p>
+
+        <div class="server-card">
+          <div>
+            <small>IP СЕРВЕРА</small>
+            <strong id="serverIp">play.tnzsmp.ru:45555</strong>
+          </div>
+          <button class="copy-btn" id="copyIp" type="button">КОПИРОВАТЬ IP</button>
+        </div>
+
+        <div class="actions" id="download">
+          <a class="btn btn-primary" href="TNZ-SMP-Launcher.exe" download>
+            <span class="btn-icon">↓</span>
+            <span><b>СКАЧАТЬ ЛАУНЧЕР</b><small>Windows · TNZ SMP Launcher</small></span>
+          </a>
+          <button class="btn btn-secondary" type="button" id="seasonBtn">
+            <span class="btn-icon">✦</span>
+            <span><b>СЕЗОН 1</b><small>Узнать подробности</small></span>
+          </button>
+        </div>
+
+        <div class="telegram-mini">
+          Наш Telegram:
+          <a href="https://t.me/SmpTnz" target="_blank" rel="noopener">@SmpTnz</a>
+        </div>
+      </div>
+      <div class="scroll-hint">ПРОКРУТИ ВНИЗ <span>↓</span></div>
+    </section>
+
+    <section class="info-section" id="about">
+      <div class="section-label">01 · TNZ SMP</div>
+      <h2>ТВОЯ ИСТОРИЯ<br><em>НАЧИНАЕТСЯ ЗДЕСЬ</em></h2>
+      <p class="section-lead">
+        TNZ SMP — это выживание, строительство и развитие мира вместе с другими игроками.
+        Начни с нуля и преврати небольшое убежище в настоящий город.
+      </p>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-number">01</div>
+          <h3>ОДНА ЖИЗНЬ</h3>
+          <p>Каждое решение имеет значение. Выживай и не теряй свою жизнь.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-number">02</div>
+          <h3>СТРОЙ И РАЗВИВАЙСЯ</h3>
+          <p>Создавай дома, города и развивай свою территорию.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-number">03</div>
+          <h3>ИГРАЙ ВМЕСТЕ</h3>
+          <p>Объединяйся с игроками, исследуй мир и создавай свою историю.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="season-banner">
+      <div>
+        <div class="section-label">02 · НОВАЯ ЭПОХА</div>
+        <h2>СЕЗОН 1<br><em>ВСЁ НАЧИНАЕТСЯ С НУЛЯ</em></h2>
+        <p>60 Minecraft-дней выживания, строительства и приключений.</p>
+      </div>
+      <button class="outline-btn" type="button" id="seasonBtn2">СМОТРЕТЬ СЕЗОН</button>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="section-label">03 · FAQ</div>
+      <h2>ЧАСТЫЕ<br><em>ВОПРОСЫ</em></h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Как зайти на сервер?</span><b>+</b>
+          </button>
+          <div class="faq-answer">
+            <p>Нажми кнопку «Скачать лаунчер», скачай TNZ SMP Launcher для Windows и запусти его. Лицензия Minecraft не нужна. Лаунчер автоматически использует нашу сборку.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Наша сборка повлияет на слабый ПК?</span><b>+</b>
+          </button>
+          <div class="faq-answer">
+            <p>Лаунчер сделан с упором на оптимизацию. Наша сборка запускается через лаунчер и не должна существенно влиять на обычную работу вашего ПК вне игры.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Что делать, если появилась ошибка?</span><b>+</b>
+          </button>
+          <div class="faq-answer">
+            <p>Если возникла ошибка при запуске лаунчера или подключении, напиши нам: <a href="https://t.me/Tnzer525" target="_blank" rel="noopener">@Tnzer525</a>. Постарайся приложить скриншот ошибки.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            <span>Какой IP сервера?</span><b>+</b>
+          </button>
+          <div class="faq-answer">
+            <p><strong>play.tnzsmp.ru:45555</strong>. Также IP можно скопировать кнопкой в верхней части сайта.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="telegram-section" id="telegram">
+      <div class="telegram-box">
+        <div>
+          <div class="section-label">04 · TELEGRAM</div>
+          <h2>БУДЬ В КУРСЕ<br><em>НОВОСТЕЙ TNZ SMP</em></h2>
+          <p>Обновления, объявления, запуск сезона и новости сервера — всё в нашем Telegram.</p>
+        </div>
+        <a class="telegram-btn" href="https://t.me/SmpTnz" target="_blank" rel="noopener">
+          <span>TELEGRAM</span>
+          <b>@SmpTnz ↗</b>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="logo.jpg" alt="TNZ SMP">
+    <div>
+      <strong>TNZ SMP</strong>
+      <span>Создай свою историю.</span>
+    </div>
+    <div class="footer-ip">play.tnzsmp.ru:45555</div>
+  </footer>
+
+  <!-- Season modal -->
+  <div class="modal" id="seasonModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalClose"></div>
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="seasonTitle">
+      <button class="modal-x" id="modalX" type="button" aria-label="Закрыть">×</button>
+      <div class="section-label">TNZ SMP · ПЕРВАЯ ЭПОХА</div>
+      <h2 id="seasonTitle">TNZ SMP — СЕЗОН 1</h2>
+      <div class="modal-text">
+        <p class="big">Всё начинается с нуля.</p>
+        <p>60 Minecraft-дней выживания, строительства и приключений.</p>
+        <p>Создавай свой дом.<br>Строй города.<br>Объединяйся с другими игроками.<br>Исследуй мир и развивай свою территорию.</p>
+        <p>Пройди весь путь от маленького дома<br>до настоящего города.</p>
+        <p><b>60-й день — финал.</b><br>Награды, достижения и лучшие моменты сезона.</p>
+        <p class="accent">Но это ещё не конец…</p>
+        <p>Карта остаётся.<br>Через 15 Minecraft-дней начнётся новый сезон.</p>
+        <p class="signature">TNZ SMP — создай свою историю.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">IP скопирован!</div>
+    <script>window.addEventListener('load',()=>document.body.classList.remove('site-loading'));</script>
+    <script src="script.js"></script>
+</body>
+</html>
